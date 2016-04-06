@@ -3,11 +3,10 @@ package plugin.en.de;
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
-import plugin.en.de.EncAndDec;
 
 public class EncryptionAndDecryption extends CordovaPlugin {
 
-  final EncAndDec ed;
+  static final EncAndDec ed = new EncAndDec();
 
 @Override
 public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {

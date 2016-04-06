@@ -22,5 +22,6 @@
       </feature>
     </config-file>
     <source-file src="src/android/EncryptionAndDecryption.java" target-dir="src/plugin/en/de/"/>
+    <source-file src="src/android/EncAndDec.java" target-dir="src/plugin/en/de/"/>
   </platform>
 </plugin>

@@ -5,7 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import plugin.en.de.EncryptionAndDescriptionUtil;
 
-public static class EncryptionAndDecryption extends CordovaPlugin {
+public class EncryptionAndDecryption extends CordovaPlugin {
 
   static final EncryptionAndDescriptionUtil ed;
 

@@ -3,7 +3,7 @@ package plugin.en.de;
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
-import plugin.en.de.EncAndDec;
+import plugin.en.de.EncryptionAndDescriptionUtil;
 
 public class EncryptionAndDecryption extends CordovaPlugin {
 

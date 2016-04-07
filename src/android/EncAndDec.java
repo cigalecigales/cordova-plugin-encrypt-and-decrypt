@@ -3,6 +3,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import android.util.Base64;
+import java.io.UnsupportedEncodingException;
 
 public class EncAndDec {
 

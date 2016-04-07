@@ -2,10 +2,12 @@ package plugin.en.de;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 
 public class EncAndDec {
 
-	//static final String ENCRYPT_IV = "abcdefghijklmnopqrstuvwxyz";
+	private static final String ZERO = "0";
+	private static final int MAX_SIZE = 16;
 
 	/**
 	 * Encrypt message.
@@ -17,6 +19,20 @@ public class EncAndDec {
 	public static String encrypt(String key, String message) {
 		String encryptedMessage = null;
 		try {
+			// Get key's bytes length, and compare to MAX_SIZE.
+			int length = MAX_SIZE - key.getBytes("UTF-8").length;
+
+			// If key's bytes length is not MAX_SIZE
+			if (length > 0) {
+				StringBuffer buf = new StringBuffer(length);
+				for (int i = 0; i < length; i++) {
+					buf.append(ZERO);
+				}
+				key = key + buf.toString();
+			}else if(length < 0){
+				key = new String(key.getBytes("UTF-8"), 0, MAX_SIZE, "UTF-8");
+			}
+
 			byte[] byteText = message.getBytes("UTF-8");
 			byte[] byteKey = key.getBytes("UTF-8");
 			byte[] byteIv = key.getBytes("UTF-8");
@@ -24,16 +40,16 @@ public class EncAndDec {
 			SecretKeySpec enckey = new SecretKeySpec(byteKey, "AES");
 			IvParameterSpec iv = new IvParameterSpec(byteIv);
 
-			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
+			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+
 			cipher.init(Cipher.ENCRYPT_MODE, enckey, iv);
 
-			encryptedMessage = new String(cipher.doFinal(byteText));
-			// Base64
-			//strResult = Base64.encodeBase64String(byteResult);
+			// Base64 encoding
+			encryptedMessage = new String(Base64.getEncoder().encodeToString(cipher.doFinal(byteText)));
 
 			return encryptedMessage;
 
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			return null;
 		}
 	}

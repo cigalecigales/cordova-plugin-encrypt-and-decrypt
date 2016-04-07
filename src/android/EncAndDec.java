@@ -45,7 +45,7 @@ public class EncAndDec {
 			cipher.init(Cipher.ENCRYPT_MODE, enckey, iv);
 
 			// Base64 encoding
-			encryptedMessage = new String(cipher.doFinal(byteText));
+			encryptedMessage = new String(Base64.encode(cipher.doFinal(byteText), Base64.DEFAULT));
 
 			return encryptedMessage;
 

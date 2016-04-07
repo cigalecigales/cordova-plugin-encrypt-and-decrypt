@@ -5,7 +5,7 @@ import javax.crypto.spec.SecretKeySpec;
 import android.util.Base64;
 import java.io.UnsupportedEncodingException;
 
-public class EncryptionAndDescriptionUtil {
+public final class EncryptionAndDescriptionUtil {
 
 	private static final String ZERO = "0";
 	private static final int MAX_SIZE = 16;

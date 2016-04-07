@@ -5,7 +5,7 @@ import javax.crypto.spec.SecretKeySpec;
 import android.util.Base64;
 import java.io.UnsupportedEncodingException;
 
-public class EncAndDec {
+public class EncryptionAndDescriptionUtil {
 
 	private static final String ZERO = "0";
 	private static final int MAX_SIZE = 16;
@@ -70,10 +70,10 @@ public class EncAndDec {
 	}
 
 	/**
-	 * Adjust message length.
+	 * Adjust key length.
 	 *
 	 * @param key
-	 * @return adjusted message
+	 * @return adjusted key
 	 */
 	private static String adjustKeyLength(String key) throws UnsupportedEncodingException {
 		// Get key's bytes length, and compare to MAX_SIZE.

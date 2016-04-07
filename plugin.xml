@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="cordova-plugin-encryption"
+  id="cordova-plugin-encrypt-and-decrypt"
   version="1.0.0">
 
   <name>Encryption_and_Decryption</name>
@@ -22,6 +22,6 @@
       </feature>
     </config-file>
     <source-file src="src/android/EncryptionAndDecryption.java" target-dir="src/plugin/en/de/"/>
-    <source-file src="src/android/EncAndDec.java" target-dir="src/plugin/en/de/"/>
+    <source-file src="src/android/EncryptionAndDescriptionUtil.java" target-dir="src/plugin/en/de/"/>
   </platform>
 </plugin>

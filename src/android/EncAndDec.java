@@ -2,7 +2,7 @@ package plugin.en.de;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.util.Base64;
+import android.util.Base64;
 
 public class EncAndDec {
 
@@ -45,7 +45,7 @@ public class EncAndDec {
 			cipher.init(Cipher.ENCRYPT_MODE, enckey, iv);
 
 			// Base64 encoding
-			encryptedMessage = new String(Base64.getEncoder().encodeToString(cipher.doFinal(byteText)));
+			encryptedMessage = new String(cipher.doFinal(byteText));
 
 			return encryptedMessage;
 

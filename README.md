@@ -11,8 +11,8 @@ $ cordova plugin add https://github.com/cigalecigales/cordova-plugin-encrypt-and
 
 
 ### JavaScript
-`key` is encryption key.<br>
-`message` is encryption target.<br>
+`key` is encryption or decryption key.<br>
+`message` is encryption or decryption target.<br>
 You must set same key when you decrypt message.<br>
 
 ```js

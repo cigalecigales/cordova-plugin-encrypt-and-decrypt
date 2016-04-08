@@ -7,7 +7,7 @@ import plugin.en.de.EncryptionAndDescriptionUtil;
 
 public class EncryptionAndDecryption extends CordovaPlugin {
 
-  static final EncryptionAndDescriptionUtil ed;
+  static final EncryptionAndDescriptionUtil ed = new EncryptionAndDescriptionUtil();
 
 @Override
 public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {

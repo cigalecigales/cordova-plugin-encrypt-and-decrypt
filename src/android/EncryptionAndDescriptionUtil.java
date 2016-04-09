@@ -48,8 +48,6 @@ public final class EncryptionAndDescriptionUtil {
 	 * @return decrypted message
 	 */
 	public static String decrypt(String key, String message) {
-		String decryptedMessage = null;
-
 		try {
 			key = adjustKeyLength(key);
 
@@ -62,8 +60,10 @@ public final class EncryptionAndDescriptionUtil {
 			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 			cipher.init(Cipher.DECRYPT_MODE, deckey, iv);
 
+			String decryptedMessage = new String(cipher.doFinal(Base64.decode(message.getBytes("UTF-8"), Base64.DEFAULT)));
+
 			// Return Decoded message.
-			return new String(cipher.doFinal(Base64.decode(message.getBytes("UTF-8"), Base64.DEFAULT)));
+			return escape(decryptedMessage);
 		} catch(Exception ex){
 			return null;
 		}
@@ -91,5 +91,15 @@ public final class EncryptionAndDescriptionUtil {
 		}
 
 		return key;
+	}
+
+	/**
+	 * Escape text.
+	 *
+	 * @param text
+	 */
+	private static void escape(String text){
+		text.replaceAll("<", "&lt;");
+		text = text.replaceAll(">", "&gt;");
 	}
 }

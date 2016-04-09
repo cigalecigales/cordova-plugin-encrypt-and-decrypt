@@ -97,9 +97,11 @@ public final class EncryptionAndDescriptionUtil {
 	 * Escape text.
 	 *
 	 * @param text
+	 * @return escaped text
 	 */
 	private static String escape(String text){
 		text.replaceAll("<", "&lt;");
 		text = text.replaceAll(">", "&gt;");
+		return text;
 	}
 }

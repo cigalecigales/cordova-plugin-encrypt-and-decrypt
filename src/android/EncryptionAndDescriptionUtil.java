@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 
 public final class EncryptionAndDescriptionUtil {
 
+	private static final String COMPLEMENT = "0";
 	private static final int MAX_SIZE = 16;
 	private static final String ENCODE_TYPE = "UTF-8";
 	private static final String ENCRYPT_TYPE = "AES";
@@ -85,7 +86,7 @@ public final class EncryptionAndDescriptionUtil {
 		if (length > 0) {
 			StringBuffer buf = new StringBuffer(length);
 			for (int i = 0; i < length; i++) {
-				buf.append(String.valueOf(i));
+				buf.append(COMPLEMENT);
 			}
 			key = key + buf.toString();
 		} else if (length < 0) {
